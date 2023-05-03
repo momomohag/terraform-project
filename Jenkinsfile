@@ -9,7 +9,7 @@ pipeline{
     stages{
         stage('Git Checkout'){
             steps{
-                git 'https://github.com/01010101Basics/terraform-project.git'
+                git 'https://github.com/momomohag/terraform-project.git'
             }
         }
         stage('Get Directory') {
@@ -26,9 +26,9 @@ pipeline{
             steps{
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
-                    credentialsId: "ilab-aws",
-                    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
-                    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                    credentialsId: "mohamed",
+                    accessKeyVariable: 'AKIAZNPLOABYSHBYHKXG',
+                    secretKeyVariable: '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']]) {
                 sh 'terraform apply --auto-approve'
                 }
             }
